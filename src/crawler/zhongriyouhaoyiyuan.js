@@ -8,6 +8,7 @@ const periodDic = {
   1: '上午',
   2: '下午'
 };
+console.log(111);
 const zhongriUrl = 'https://www.zryhyy.com.cn/schedul_interface/scheduling/schedulDataByHosCode';
 
 const worksheetDic = {
