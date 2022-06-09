@@ -1,4 +1,4 @@
-const { createBeijingxieheyiyuan } = require('./crawler/beijingxieheyiyan');
+const { createBeijingxieheyiyuan } = require('./crawler/beijingxieheyiyuan');
 const { createZhongriyouhaoyiyuan } = require('./crawler/zhongriyouhaoyiyuan');
 
 module.exports = {

@@ -1,6 +1,7 @@
+import createrMap from './createrMap';
+import ICreaterInterface, { hospitalKey } from './interface/ICreaterInterface'
 const { app, ipcMain, BrowserWindow, dialog } = require('electron');
 const path = require('path');
-const createrMap = require('./createrMap');
 const { hospitalNameDic } = require('./util');
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
@@ -36,8 +37,8 @@ app.on('window-all-closed', () => {
 });
 
 // 接收开始导出通知
-ipcMain.on('startExport', async (event: any, hospitalName: string) => {
-  const createMethod = createrMap[hospitalName];
+ipcMain.on('startExport', async (event: any, hospitalName: hospitalKey) => {
+  const createMethod = (createrMap as ICreaterInterface)[hospitalName];
   const workbook = await createMethod();
   // 关闭loading
   event.sender.send('reply', 'close');
